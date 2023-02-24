@@ -19,6 +19,7 @@ export class AuthService {
       password
     });
   }
+<<<<<<< HEAD
 
   register(name: string, email: string, password: string) {
     return this.http.post(`${ this.apiUrl }/api/v1/auth/register`, {
@@ -27,4 +28,6 @@ export class AuthService {
       password
     });
   }
+=======
+>>>>>>> master
 }
