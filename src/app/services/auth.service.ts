@@ -14,7 +14,7 @@ export class AuthService {
   ) { }
 
   login(email: string, password: string) {
-    this.http.post(`${ this.apiUrl }/api/v1/auth/login`, {
+    return this.http.post(`${ this.apiUrl }/api/v1/auth/login`, {
       email,
       password
     });
