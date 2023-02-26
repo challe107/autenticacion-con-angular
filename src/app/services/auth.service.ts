@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment'
 import { ResponseLogin } from '@models/auth.model';
+import { User } from '@models/user.model';
 import { switchMap, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 
@@ -61,6 +62,15 @@ export class AuthService {
     return this.http.post(`${ this.apiUrl }/api/v1/auth/change-password`, {
       token,
       newPassword
+    });
+  }
+
+  getProfile() {
+    const token = this.tokenService.getToken();
+    return this.http.get<User>(`${ this.apiUrl }/api/v1/auth/profile`, {
+      headers: {
+        Authorization: `Bearer ${ token }`
+      }
     });
   }
 
