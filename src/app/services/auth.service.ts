@@ -34,6 +34,7 @@ export class AuthService {
       tap(response => {
         if (response) {
           this.tokenService.saveToken(response.access_token);
+          this.tokenService.saveRefreshToken(response.refresh_token);
         }
       })
     );
